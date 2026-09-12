@@ -1,0 +1,5 @@
+dev.duckdb
+*.duckdb
+logs/
+data/bronze/
+data/silver/

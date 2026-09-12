@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: stg_flights
+    description: "Cleaned and typed flight records from the Silver layer."
+
+    columns:
+      - name: flight_record_id
+        description: "Unique identifier for the flight record."
+        tests:
+          - not_null
+          - unique
+
+      - name: airline
+        description: "Airline operating the flight."
+        tests:
+          - not_null
+
+      - name: source_city
+        description: "City where the flight departs."
+        tests:
+          - not_null
+
+      - name: destination_city
+        description: "City where the flight arrives."
+        tests:
+          - not_null
+
+      - name: travel_class
+        description: "Cabin class of the flight."
+        tests:
+          - not_null
+          - accepted_values:
+             arguments:
+               values: ['Economy', 'Business']
+
+      - name: duration_hours
+        description: "Flight duration in hours."
+        tests:
+          - not_null
+
+      - name: days_left
+        description: "Number of days remaining before departure."
+        tests:
+          - not_null
+
+      - name: price
+        description: "Flight ticket price."
+        tests:
+          - not_null
